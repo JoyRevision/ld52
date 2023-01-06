@@ -33,3 +33,12 @@ D/Right - go right
 
 Space/E/Left Click - grab farmer
 X/Right Click - drop all farmers
+
+
+Wants:
+
+- 2D Pixel art
+- Line drawn for tether
+- Ability to chuck / drop farmers into other ships
+- Parallax background
+- Funny noises
