@@ -9,6 +9,8 @@ Ideas:
 - 2D, Flying ship through caves, Pick up gems with tethers (a la dome keeper), avoid spikes and profit
 - Alien ship where you harvest pesky farmers (too many farming games)
   - There are too many farmers harvesting crops in the simulation, Agent 74, please go collect them and dispose of them in the bin.
+- Rabbit farmer top down shooter
+  - shoots trowels at carrot monsters
 
 
 **Alien Ship** -- Harvester Harvesting (working title):
