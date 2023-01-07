@@ -27,10 +27,13 @@ public class Player : MonoBehaviour
 
     void LookAtCursor()
     {
+        // Commented out since it's good code, but I decided not to do a render texture
         // must get a resolution modifier since we render to a texture :)
-        Vector2 renderTextureRes = new Vector2(320f, 240f);
-        Vector2 outputRes = new Vector2(640f, 480f);
-        Vector2 resMod = new Vector2(outputRes.x / renderTextureRes.x, outputRes.y / renderTextureRes.y);
+        // Vector2 renderTextureRes = new Vector2(320f, 240f);
+        // Vector2 outputRes = new Vector2(640f, 480f);
+        // Vector2 resMod = new Vector2(outputRes.x / renderTextureRes.x, outputRes.y / renderTextureRes.y);
+
+        Vector2 resMod = new Vector2(1f, 1f);
 
         var mousePos = Input.mousePosition;
         var screenPoint = new Vector3(mousePos.x / resMod.x, mousePos.y / resMod.y, mousePos.z);
@@ -46,17 +49,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    // void LateUpdate()
-    // {
-    //     LookAtCursor();
-    // }
-
     // Update is called once per frame
     void Update()
     {
         // TODO: Make this smooth / lerp it up
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * moveSpeed;
-
 
         LookAtCursor();
 
