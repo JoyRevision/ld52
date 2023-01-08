@@ -7,29 +7,26 @@ public class ProjectileController : MonoBehaviour
     private Rigidbody rb;
 
     private Vector3 direction;
-    public float speed = 0.75f;
+    public float force = 1250f;
 
     public bool active = true;
 
     public int damage = 1;
+
+    void Start()
+    {
+        // Ignore all collisions with the player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Physics.IgnoreCollision(player.GetComponentInChildren<BoxCollider>(), GetComponent<BoxCollider>());
+    }
 
     // called from the attacker when instantiating
     public void Setup(Vector3 dir)
     {
         direction = dir;
 
-        // Ignore all collisions with the player
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Physics.IgnoreCollision(player.GetComponentInChildren<BoxCollider>(), GetComponent<BoxCollider>());
-
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(direction * 2500f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.rotation = Quaternion.LookRotation(direction);
+        rb.AddForce(direction * force);
     }
 
     void OnCollisionEnter(Collision other)

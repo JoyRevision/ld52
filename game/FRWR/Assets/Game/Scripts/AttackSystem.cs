@@ -43,10 +43,10 @@ public class AttackSystem : MonoBehaviour
         if (cooldownTimer > cooldownSec && Input.GetButtonDown("Attack"))
         {
             var attackPos = GetAttackLocation();
-            Vector3 direction = (attackPos - transform.position).normalized;
+            Vector3 direction = transform.forward.normalized;
 
             // spawn a trowel/projectile and give it the starting point (transform.position) and the direction
-            GameObject p = Instantiate(projectile, transform.position, Quaternion.identity);
+            GameObject p = Instantiate(projectile, transform.position, transform.rotation);
             p.GetComponent<ProjectileController>().Setup(direction);
 
             cooldownTimer = 0f;
