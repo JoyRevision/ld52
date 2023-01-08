@@ -19,6 +19,18 @@ public class Player : MonoBehaviour
 
     public Camera cameraMain;
 
+    List<GameObject> enemyCollisions = new List<GameObject>();
+    float health = 100f;
+    float tickDamage = 20f;
+
+    public AttackSystem attackSystem;
+    public ParticleSystem bits;
+
+    public float GetHealth()
+    {
+        return health;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +88,24 @@ public class Player : MonoBehaviour
         move.y = _verticalSpeed;
 
         _controller.Move(move * Time.deltaTime);
+
+        // take damage if one or more enemies are colliding
+        int touchingEnemies = 0;
+        foreach (GameObject enemy in enemyCollisions)
+        {
+            if (enemy != null)
+                touchingEnemies++;
+        }
+        if (touchingEnemies > 0)
+        {
+            health -= tickDamage * touchingEnemies * Time.deltaTime;
+        }
+
+        if (health <= 0)
+        {
+            Instantiate(bits, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     public bool IsMoving()
@@ -93,5 +123,29 @@ public class Player : MonoBehaviour
     {
         enabled = false;
         _controller.enabled = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        var tag = other.gameObject.tag;
+        if (tag == "Enemy")
+        {
+            enemyCollisions.Add(other.gameObject);
+        }
+
+        if (tag == "PowerUp")
+        {
+            attackSystem.TriggerPowerUp();
+            Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        var tag = other.gameObject.tag;
+        if (tag == "Enemy")
+        {
+            enemyCollisions.Remove(other.gameObject);
+        }
     }
 }

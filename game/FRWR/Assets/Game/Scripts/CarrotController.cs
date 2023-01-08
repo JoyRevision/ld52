@@ -17,9 +17,17 @@ public class CarrotController : MonoBehaviour
 
     public ParticleSystem deathParticles;
 
+    public GameObject powerUpPrefab;
+
     void DoDeath()
     {
+        GameManager.Instance.CarrotDied();
         Instantiate(deathParticles, transform.position, Quaternion.identity);
+
+        // 10% chance to drop a powerup
+        var rand = Random.Range(1, 10);
+        if (rand == 1)
+            Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
     }
@@ -37,14 +45,13 @@ public class CarrotController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
-
         _controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player == null) return;
         mesh.transform.LookAt(player.transform, Vector3.up);
 
         Vector3 direction = (player.transform.position - transform.position).normalized;

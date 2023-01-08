@@ -1,5 +1,10 @@
 #### LD 52 Harvest
 
+## Credits
+
+Font - m5x7 by Danial Linssen: https://managore.itch.io/m5x7
+
+
 ### Brainstorming
 
 

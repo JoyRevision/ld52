@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4361726490111095634}
   - component: {fileID: 4361726490111095635}
   - component: {fileID: 192156332}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Carrot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -52,6 +52,8 @@ MonoBehaviour:
   moveSpeed: 5
   health: 2
   deathParticles: {fileID: 7426438632173107763, guid: ad7e9b2acea72c846a89b40ee5c1d0e3,
+    type: 3}
+  powerUpPrefab: {fileID: 3934898798449843554, guid: d7e75fa56415b654a95947cd2cc521c9,
     type: 3}
 --- !u!143 &4361726490111095635
 CharacterController:
@@ -150,6 +152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CarrotMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d8a433d87e4385a4180b781cf015bbe3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8a433d87e4385a4180b781cf015bbe3, type: 3}

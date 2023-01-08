@@ -13,11 +13,24 @@ public class ProjectileController : MonoBehaviour
 
     public int damage = 1;
 
+    float timer;
+
     void Start()
     {
         // Ignore all collisions with the player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Physics.IgnoreCollision(player.GetComponentInChildren<BoxCollider>(), GetComponent<BoxCollider>());
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+
+        // After 15 secs just destroy
+        if (timer > 15f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // called from the attacker when instantiating
@@ -32,7 +45,12 @@ public class ProjectileController : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if (!active) return;
-        if (other.gameObject.tag == "Player") return;
+
+        var tag = other.gameObject.tag;
+        if (tag == "Player" || tag == "Projectile")
+        {
+            Physics.IgnoreCollision(other.collider, GetComponent<BoxCollider>());
+        }
 
         if (other.gameObject.tag == "Enemy")
         {

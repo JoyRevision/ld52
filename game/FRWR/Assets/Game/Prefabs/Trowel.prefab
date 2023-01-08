@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 970964327411272203}
   - component: {fileID: 3403634926908615299}
   - component: {fileID: 5858963572325676057}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trowel
   m_TagString: Projectile
   m_Icon: {fileID: 0}
