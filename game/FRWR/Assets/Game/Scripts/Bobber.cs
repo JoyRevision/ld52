@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class Bobber : MonoBehaviour
 {
     public float bobbingAmount = 0.05f;

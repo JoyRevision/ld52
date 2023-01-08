@@ -11,7 +11,27 @@ public class CarrotController : MonoBehaviour
     public float rotationSpeed = 10f;
     public float moveSpeed = 5f;
 
+    public int health = 2;
+
     private CharacterController _controller;
+
+    public ParticleSystem deathParticles;
+
+    void DoDeath()
+    {
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
+    }
+
+    public void DoDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            DoDeath();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

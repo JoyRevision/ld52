@@ -11,6 +11,9 @@ public class AttackSystem : MonoBehaviour
 
     public GameObject projectile;
 
+    float cooldownSec = 0.75f;
+    float cooldownTimer = 0.75f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,16 +38,18 @@ public class AttackSystem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Attack"))
+        cooldownTimer += Time.deltaTime;
+
+        if (cooldownTimer > cooldownSec && Input.GetButtonDown("Attack"))
         {
             var attackPos = GetAttackLocation();
             Vector3 direction = (attackPos - transform.position).normalized;
 
-            // spawn a trowel and give it the starting point (transform.position) and the direction
-            Debug.Log("Attacking in: " + direction);
-
+            // spawn a trowel/projectile and give it the starting point (transform.position) and the direction
             GameObject p = Instantiate(projectile, transform.position, Quaternion.identity);
-            p.GetComponent<ProjectileController>().SetDirection(direction);
+            p.GetComponent<ProjectileController>().Setup(direction);
+
+            cooldownTimer = 0f;
         }
     }
 }
