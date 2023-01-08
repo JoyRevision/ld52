@@ -11,6 +11,31 @@ Ideas:
   - There are too many farmers harvesting crops in the simulation, Agent 74, please go collect them and dispose of them in the bin.
 - Rabbit farmer top down shooter
   - shoots trowels at carrot monsters
+  
+  
+---
+
+**Farmer Rabbit's Wild Ride**
+
+Dear Farmer Rabbit,
+
+An Evil Veg-Romancer has taken over the kingdom with their army of necro-crops. We believe their next target is your
+carrot patch. 
+
+Good Luck, it's Harvest Time.
+
+---
+
+TODO:
+
+- Player damage / Death
+- Carrot Spawning
+- Score Tracker
+- Intro Scene
+- Death / Final Score Scene
+- Environment pieces
+- Music / SFX
+
 
 
 **Alien Ship** -- Harvester Harvesting (working title):
