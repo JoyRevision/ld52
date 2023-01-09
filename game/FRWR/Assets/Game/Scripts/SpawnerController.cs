@@ -41,7 +41,7 @@ public class SpawnerController : MonoBehaviour
             // Difficulty. After 60sec it's hard, 30s medium, otherwise pretty easy
             if (timer > 60f)
             {
-                timeToSpawnSec = Random.Range(0.25f, 1f);
+                timeToSpawnSec = Random.Range(0.5f, 1f);
             }
             else if (timer > 30f)
             {

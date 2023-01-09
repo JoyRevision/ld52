@@ -19,10 +19,20 @@ public class CarrotController : MonoBehaviour
 
     public GameObject powerUpPrefab;
 
+    public AudioClip deathSound;
+
+    IEnumerator RemoveSelf()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(gameObject);
+    }
+
     void DoDeath()
     {
         GameManager.Instance.CarrotDied();
         Instantiate(deathParticles, transform.position, Quaternion.identity);
+
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
 
         // 10% chance to drop a powerup
         var rand = Random.Range(1, 10);

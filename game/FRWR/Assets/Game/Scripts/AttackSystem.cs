@@ -15,7 +15,7 @@ public class AttackSystem : MonoBehaviour
     float cooldownTimer = COOLDOWNSEC;
 
     const float POWERUPTIME = 2.5f;
-    float poweredUpTime = POWERUPTIME;
+    float poweredUpTime = 0;
 
     // For shot delay
     const float POWERUPDELAY = 0.1f;
@@ -24,7 +24,7 @@ public class AttackSystem : MonoBehaviour
 
     public void TriggerPowerUp()
     {
-        poweredUpTime = 0f;
+        poweredUpTime += POWERUPTIME;
     }
 
     // Start is called before the first frame update
@@ -53,12 +53,17 @@ public class AttackSystem : MonoBehaviour
     {
         cooldownTimer += Time.deltaTime;
         powerUpDelayTimer += Time.deltaTime;
-        poweredUpTime += Time.deltaTime;
 
-        if (poweredUpTime < POWERUPTIME)
+        if (poweredUpTime > 0)
+        {
             poweredUp = true;
+            poweredUpTime -= Time.deltaTime;
+        }
         else
+        {
             poweredUp = false;
+            poweredUpTime = 0f;
+        }
 
         if (poweredUp && powerUpDelayTimer >= POWERUPDELAY)
         {

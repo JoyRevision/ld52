@@ -15,11 +15,15 @@ public class ProjectileController : MonoBehaviour
 
     float timer;
 
+    AudioSource hitSound;
+
     void Start()
     {
         // Ignore all collisions with the player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Physics.IgnoreCollision(player.GetComponentInChildren<BoxCollider>(), GetComponent<BoxCollider>());
+
+        hitSound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -47,15 +51,12 @@ public class ProjectileController : MonoBehaviour
         if (!active) return;
 
         var tag = other.gameObject.tag;
-        if (tag == "Player" || tag == "Projectile")
-        {
-            Physics.IgnoreCollision(other.collider, GetComponent<BoxCollider>());
-        }
-
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<CarrotController>().DoDamage(damage);
+            hitSound.Play();
         }
+
 
         active = false;
     }

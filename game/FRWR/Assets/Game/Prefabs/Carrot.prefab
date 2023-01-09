@@ -55,6 +55,7 @@ MonoBehaviour:
     type: 3}
   powerUpPrefab: {fileID: 3934898798449843554, guid: d7e75fa56415b654a95947cd2cc521c9,
     type: 3}
+  deathSound: {fileID: 8300000, guid: aedac7e74ae1c374d8d83398feff457e, type: 3}
 --- !u!143 &4361726490111095635
 CharacterController:
   m_ObjectHideFlags: 0
