@@ -11,7 +11,7 @@ public class AttackSystem : MonoBehaviour
 
     public GameObject projectile;
 
-    const float COOLDOWNSEC = 0.25f;
+    const float COOLDOWNSEC = 0.35f;
     float cooldownTimer = COOLDOWNSEC;
 
     const float POWERUPTIME = 2.5f;
@@ -71,7 +71,7 @@ public class AttackSystem : MonoBehaviour
 
             powerUpDelayTimer = 0f;
         }
-        else if (Input.GetButtonDown("Attack") && cooldownTimer > COOLDOWNSEC)
+        else if (Input.GetButton("Attack") && cooldownTimer > COOLDOWNSEC)
         {
             var attackPos = GetAttackLocation();
             Vector3 direction = transform.forward.normalized;
