@@ -2,7 +2,7 @@
 
 ## Credits
 
-Font - m5x7 by Danial Linssen: https://managore.itch.io/m5x7
+Font - m5x7 by Daniel Linssen: https://managore.itch.io/m5x7
 
 
 ### Brainstorming
@@ -16,8 +16,8 @@ Ideas:
   - There are too many farmers harvesting crops in the simulation, Agent 74, please go collect them and dispose of them in the bin.
 - Rabbit farmer top down shooter
   - shoots trowels at carrot monsters
-  
-  
+
+
 ---
 
 **Farmer Rabbit's Wild Ride**
@@ -25,9 +25,9 @@ Ideas:
 Dear Farmer Rabbit,
 
 An Evil Veg-Romancer has taken over the kingdom with their army of necro-crops. We believe their next target is your
-carrot patch. 
+carrot patch.
 
-Good Luck, it's Harvest Time.
+Good Luck, it's Harvesting Time.
 
 ---
 
